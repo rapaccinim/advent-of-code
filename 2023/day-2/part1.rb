@@ -39,6 +39,18 @@ def get_hashes(sets)
   end
 end
 
+def is_hash_within_max_values(hash)
+  puts "Hash: #{hash}"
+end
+
+def is_game_within_max_values(hashes)
+  # it will be a all?
+  puts "Hashes: #{hashes}"
+  hashes.each do
+    is_hash_within_max_values(hash)
+  end
+end
+
 File.open(FILE_LOCATION).each_with_index do |line, index|
   game = line[GAME_REGEX]
   puts "Each game"
@@ -46,39 +58,6 @@ File.open(FILE_LOCATION).each_with_index do |line, index|
   sets = get_sets(game)
   puts sets.to_s
   hashes = get_hashes(sets)
-  puts "hashes: #{hashes}"
-  # sets.each do |set|
-  #   cubes = get_cubes(set)
-  #   puts "each set"
-  #   puts "Cubes: #{cubes}"
-  #   # key_value_pairs = cubes.map! do | cube|
-  #   #   # puts "each cube"
-  #   #   # puts "Cube: #{cube}"
-  #   #   values = get_values(cube)
-  #   #   # puts "Values: #{values}"
-  #   #  [values[1], values[0].to_i]
-  #   #   # puts "Key/value: #{key_value}"
-  #   # end
-  #   # # puts "key_value_pairs: #{key_value_pairs}"
-  #   # hash = key_value_pairs.to_h
-  #   # puts hash
-  #   hash = get_hash(cubes)
-  #   puts hash
-  #
-  #   # cubes.each do |cube|
-  #   #
-  #   #   # hash = get_hash(values)
-  #   #   # puts hash
-  #   # end
-  # end
-  # sum += index++ if sets.all? do |set|
-  #   cubes = set.split(',')
-  #   cubes.all? do |cube|
-  #     cube.split(/(\D+)/)
-  #   end
-  # end
-  # cubes = sets.map! { |set| get_cubes(set) }
-  # cubes.each { |cube| get_values(cube) }
-  # continue from here
+  is_game_within_max_values(hashes)
 end
 puts "The sum of all of the calibration values is: #{sum}"
