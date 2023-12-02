@@ -9,4 +9,8 @@ This allowed me to ignore the value of the game index.
 Instead, I've just been using `index` + 1 of each input line.
 
 ## Part 2
-TBD
+Don't know why it took me a lot of time to understand the assignment... Maybe because it's Saturday evening!
+
+The assignment itself it's easier than what it looks (saying this after reading it for the 7th time...).
+
+By solving the second part I've understood that the code in the first one can be improved a lot!
