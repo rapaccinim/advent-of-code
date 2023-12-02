@@ -47,4 +47,4 @@ File.open(FILE_LOCATION).each_with_index do |line, index|
   hashes = get_hashes(sets)
   sum+= index + 1 if is_game_within_max_values(hashes)
 end
-puts "The sum of all of the calibration values is: #{sum}"
+puts "The sum of the IDs of the valid games is: #{sum}"
