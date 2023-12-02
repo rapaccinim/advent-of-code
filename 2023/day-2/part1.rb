@@ -33,34 +33,44 @@ def get_hash(cubes)
   end).to_h
 end
 
+def get_hashes(sets)
+  sets.map! do |set|
+    get_hash(get_cubes(set))
+  end
+end
+
 File.open(FILE_LOCATION).each_with_index do |line, index|
   game = line[GAME_REGEX]
+  puts "Each game"
   puts game
   sets = get_sets(game)
   puts sets.to_s
-  sets.each do |set|
-    cubes = get_cubes(set)
-    puts "each set"
-    puts "Cubes: #{cubes}"
-    # key_value_pairs = cubes.map! do | cube|
-    #   # puts "each cube"
-    #   # puts "Cube: #{cube}"
-    #   values = get_values(cube)
-    #   # puts "Values: #{values}"
-    #  [values[1], values[0].to_i]
-    #   # puts "Key/value: #{key_value}"
-    # end
-    # # puts "key_value_pairs: #{key_value_pairs}"
-    # hash = key_value_pairs.to_h
-    # puts hash
-    hash = get_hash(cubes)
-    puts hash
-    # cubes.each do |cube|
-    #
-    #   # hash = get_hash(values)
-    #   # puts hash
-    # end
-  end
+  hashes = get_hashes(sets)
+  puts "hashes: #{hashes}"
+  # sets.each do |set|
+  #   cubes = get_cubes(set)
+  #   puts "each set"
+  #   puts "Cubes: #{cubes}"
+  #   # key_value_pairs = cubes.map! do | cube|
+  #   #   # puts "each cube"
+  #   #   # puts "Cube: #{cube}"
+  #   #   values = get_values(cube)
+  #   #   # puts "Values: #{values}"
+  #   #  [values[1], values[0].to_i]
+  #   #   # puts "Key/value: #{key_value}"
+  #   # end
+  #   # # puts "key_value_pairs: #{key_value_pairs}"
+  #   # hash = key_value_pairs.to_h
+  #   # puts hash
+  #   hash = get_hash(cubes)
+  #   puts hash
+  #
+  #   # cubes.each do |cube|
+  #   #
+  #   #   # hash = get_hash(values)
+  #   #   # puts hash
+  #   # end
+  # end
   # sum += index++ if sets.all? do |set|
   #   cubes = set.split(',')
   #   cubes.all? do |cube|
